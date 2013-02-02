@@ -1,0 +1,14 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+Model:
+	classes+=Class*
+	references+=Ref;
+	
+Class:
+	'class' name=Name displayName=STRING '.';
+
+Name: ID?;
+
+Ref: 'ref' to=[Class|Name] '.';
